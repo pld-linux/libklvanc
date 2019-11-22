@@ -1,0 +1,37 @@
+--- libklvanc-c38d31b428d0e02061f32c14562d172ec3bd9608/configure.ac.orig	2019-11-13 22:38:45.000000000 +0100
++++ libklvanc-c38d31b428d0e02061f32c14562d172ec3bd9608/configure.ac	2019-11-20 21:07:08.114284576 +0100
+@@ -14,10 +14,10 @@
+ AC_PROG_CXX
+ if test `uname -s` = "Darwin"
+ then
+-CFLAGS+=" -I/usr/local/include "
+-LDFLAGS+=" -L/usr/local/lib "
++CFLAGS="$CFLAGS -I/usr/local/include "
++LDFLAGS="$LDFLAGS -L/usr/local/lib "
+ fi
+-CFLAGS+=" -DKL_USERSPACE "
++CFLAGS="$CFLAGS -DKL_USERSPACE "
+ 
+ # We always build with -fPIC in case our static libraries end up
+ # being linked into a consumer's shared library
+@@ -52,16 +52,16 @@
+ 
+ # Check for curses (optional)
+ AC_CHECK_HEADERS([curses.h], HEADER_LIBCURSES="yes")
+-if test "x$HEADER_LIBCURSES" == "xyes" ; then
+-    if test "x$enablecurses" == "xtrue" ; then
+-        LDFLAGS+=" -lcurses "
++if test "x$HEADER_LIBCURSES" = "xyes" ; then
++    if test "x$enablecurses" = "xtrue" ; then
++        LDFLAGS="$LDFLAGS -lcurses "
+     fi
+ fi
+ AM_CONDITIONAL(LIBCURSES, test x"$HEADER_LIBCURSES" == x"yes")
+ 
+ AC_CHECK_HEADERS([libklmonitoring/klmonitoring.h], HEADER_LIBKLMONITORING="yes")
+ if test "x$HEADER_LIBKLMONITORING" == "xyes" ; then
+-    LDFLAGS+=" -lklmonitoring "
++    LDFLAGS="$LDFLAGS -lklmonitoring "
+ fi
+ AM_CONDITIONAL(LIBKLMONITORING, test x"$HEADER_LIBKLMONITORING" == x"yes")
+ 
