@@ -8,9 +8,10 @@ Summary(pl.UTF-8):	Biblioteka do analizy/generowania danych VANC
 Name:		libklvanc
 # from configure.ac /AC_INIT
 Version:	1.0
+%define	rel	1
 %define	snap	20190806
 %define	gitref	c38d31b428d0e02061f32c14562d172ec3bd9608
-Release:	0.%{snap}.1
+Release:	0.%{snap}.%{rel}
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	https://github.com/stoth68000/libklvanc/archive/%{gitref}/%{name}-%{snap}.tar.gz
