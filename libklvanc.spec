@@ -63,9 +63,7 @@ Statyczna biblioteka libklvanc.
 Summary:	API documentation for libklvanc library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libklvanc
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for libklvanc library.
