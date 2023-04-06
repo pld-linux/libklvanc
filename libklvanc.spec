@@ -6,16 +6,13 @@
 Summary:	Library to parse/generate Vertical Ancillary Data
 Summary(pl.UTF-8):	Biblioteka do analizy/generowania danych VANC
 Name:		libklvanc
-# from configure.ac /AC_INIT
-Version:	1.0
-%define	rel	2
-%define	snap	20190806
-%define	gitref	c38d31b428d0e02061f32c14562d172ec3bd9608
-Release:	0.%{snap}.%{rel}
+Version:	1.6.0
+Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	https://github.com/stoth68000/libklvanc/archive/%{gitref}/%{name}-%{snap}.tar.gz
-# Source0-md5:	a870bc96decfe8951e5f5ec89e4b6a04
+#Source0Download: https://github.com/stoth68000/libklvanc/tags
+Source0:	https://github.com/stoth68000/libklvanc/archive/vid.obe.%{version}/%{name}-vid.obe.%{version}.tar.gz
+# Source0-md5:	392ccb9f57a8c34c2d6dedac6ae398cf
 Patch0:		%{name}-sh.patch
 URL:		https://github.com/stoth68000/libklvanc
 BuildRequires:	autoconf >= 2.68
@@ -72,7 +69,7 @@ API documentation for libklvanc library.
 Dokumentacja API biblioteki libklvanc.
 
 %prep
-%setup -q -n %{name}-%{gitref}
+%setup -q -n %{name}-vid.obe.%{version}
 %patch0 -p1
 
 %build
@@ -80,9 +77,7 @@ Dokumentacja API biblioteki libklvanc.
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
-# --disable-dep-curses: nothing actually uses it
 %configure \
-	--disable-dep-curses \
 	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static}
 %{__make}
